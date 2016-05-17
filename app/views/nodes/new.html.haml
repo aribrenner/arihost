@@ -1,0 +1,7 @@
+%h1
+  New link
+
+= form_for @node do |form|
+
+  = form.text_field :redirect_url
+  = submit_tag "shorten"
