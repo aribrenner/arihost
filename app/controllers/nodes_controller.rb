@@ -12,10 +12,11 @@ class NodesController < ApplicationController
   end
 
   def create
-    node = Node.new(create_params)
+    @node = Node.new(create_params)
+    @node.user = current_user
 
-    if node.save
-      redirect_to node_path(node.short_url)
+    if @node.save
+      redirect_to node_path(@node.short_url)
     else
       render :new
     end
@@ -25,7 +26,7 @@ class NodesController < ApplicationController
   end
 
   def index
-    @nodes = Node.all
+    @nodes = current_user.nodes
   end
 
   private
