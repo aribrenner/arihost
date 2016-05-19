@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   validates :password, length: PASSWORD_LENGTH_RANGE
 
+  has_many :nodes
+
   attr_reader :password
 
   def self.find_from_credentials(username:, password:)

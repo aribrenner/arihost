@@ -5,6 +5,8 @@ class Node < ActiveRecord::Base
 
   before_validation :set_short_url, on: :create
 
+  belongs_to :user
+
   SHORT_URL_LENGTH = 6
 
   private
