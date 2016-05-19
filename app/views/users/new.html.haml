@@ -1,0 +1,4 @@
+= form_for @user do |form|
+  = form.text_field :username
+  = form.text_field :password, type: :password
+  = submit_tag 'sign up'
