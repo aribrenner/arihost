@@ -26,4 +26,8 @@ class ApplicationController < ActionController::Base
   def ensure_signed_in
     redirect_to :root unless current_user
   end
+
+  def ensure_signed_out
+    redirect_to nodes_path if current_user
+  end
 end

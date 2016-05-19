@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :ensure_signed_out, only: [:new, :create]
+
   def new
     @user = User.new
   end
