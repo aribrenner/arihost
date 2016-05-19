@@ -1,6 +1,6 @@
 class NodesController < ApplicationController
 
-  before_action :ensure_signed_in
+  before_action :ensure_signed_in, except: :find_redirect
   before_action :find_by_short_url, only: [:find_redirect, :show]
 
   def find_redirect
