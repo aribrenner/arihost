@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   USERNAME_LENGTH_RANGE = { minimum: 7, maximum: 15 }
 
   validates_presence_of :username
-  validates :username, length: USERNAME_LENGTH_RANGE
+  validates :username, length: USERNAME_LENGTH_RANGE, uniqueness: true
+
   validates :password, length: PASSWORD_LENGTH_RANGE
 
   attr_reader :password

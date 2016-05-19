@@ -29,6 +29,6 @@ ActiveRecord::Schema.define(version: 20160519005042) do
     t.string "session_token"
   end
 
-  add_index "users", ["username"], name: "index_users_on_username", using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
