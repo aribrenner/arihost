@@ -10,6 +10,10 @@ class Node < ActiveRecord::Base
 
   SHORT_URL_LENGTH = 6
 
+  def full_url
+    "#{ENV['DOMAIN']}/#{short_url}"
+  end
+
   private
 
   def set_short_url
