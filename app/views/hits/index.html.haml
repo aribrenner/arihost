@@ -1,0 +1,11 @@
+%table
+  %tr
+    %td ip
+    %td time
+
+  - @hits.each do |hit|
+    %tr
+      %td
+        = hit.ip
+      %td
+        = hit.created_at
