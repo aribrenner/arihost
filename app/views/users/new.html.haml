@@ -2,3 +2,7 @@
   = form.text_field :username
   = form.text_field :password, type: :password
   = submit_tag 'sign up'
+
+%br
+
+= link_to 'returning user?', new_session_path

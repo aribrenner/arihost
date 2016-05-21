@@ -1,4 +1,8 @@
 = form_for :user, url: session_path do |f|
   = f.text_field :username
-  = f.text_field :password
-  = f.submit
+  = f.text_field :password, type: :password
+  = f.submit 'sign in'
+
+%br
+
+= link_to 'new user?', new_user_path
