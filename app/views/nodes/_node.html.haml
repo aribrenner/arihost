@@ -1,6 +1,8 @@
 - hit_count = node.hits.count
 
 = node.full_url
+%button.copy-button{"data-clipboard-text" => "#{node.full_url}"}
+  Copy link
 |
 = link_to node.redirect_url, node.redirect_url
 |
