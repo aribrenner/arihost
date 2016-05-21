@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   validates :username, length: USERNAME_LENGTH_RANGE, uniqueness: true
 
-  validates :password, length: PASSWORD_LENGTH_RANGE
+  validates :password, length: PASSWORD_LENGTH_RANGE, allow_nil: true
 
   has_many :nodes
   has_many :hits, through: :nodes

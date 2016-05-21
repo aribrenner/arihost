@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'users#new'
 
+  resource :session
+
   scope :app do
 
     resources :nodes, param: :short_url do
