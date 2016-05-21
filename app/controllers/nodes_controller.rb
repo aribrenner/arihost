@@ -29,7 +29,7 @@ class NodesController < ApplicationController
   end
 
   def index
-    @nodes = current_user.nodes
+    @nodes = current_user.nodes.includes(:hits)
   end
 
   private

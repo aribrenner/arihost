@@ -1,6 +1,11 @@
-- if @hits.present?
+- if @node
+  = "#{@hits.count} hits for "
+  = link_to @node.short_url, node_path(@node.short_url)
+- else
+  = "#{@hits.count} total hits"
 
-  = "#{@hits.count} hits#{' for this url' if @node}"
+
+- if @hits.present?
 
   %table
     %tr
@@ -13,7 +18,3 @@
           = hit.ip
         %td
           = hit.created_at.strftime("%A, %B %d, %Y at %I:%M %p")
-
-- else
-
-  No Hits :(

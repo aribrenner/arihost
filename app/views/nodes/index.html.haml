@@ -1,5 +1,9 @@
+%h3
+  My URLs
+
 - @nodes.each do |node|
   = render 'node', node: node
   %br
 
+%br
 = link_to 'create url', new_node_path
