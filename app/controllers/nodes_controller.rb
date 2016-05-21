@@ -1,7 +1,6 @@
 class NodesController < ApplicationController
 
   before_action :ensure_signed_in, except: :find_redirect
-  before_action :find_by_short_url, only: [:find_redirect, :show]
 
   def find_redirect
     redirect_to @node.redirect_url
@@ -25,6 +24,8 @@ class NodesController < ApplicationController
   end
 
   def show
+    @node = current_user.nodes.find_by_short_url(params[:short_url])
+    raise ActionController::RoutingError.new(:short_url) unless @node
   end
 
   def index
@@ -35,11 +36,6 @@ class NodesController < ApplicationController
 
   def create_params
     params.require(:node).permit(:redirect_url)
-  end
-
-  def find_by_short_url
-    @node = Node.find_by_short_url(params[:short_url])
-    raise ActionController::RoutingError.new(:short_url) unless @node
   end
 
 end

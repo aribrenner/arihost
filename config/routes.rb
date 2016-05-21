@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get ':short_url', to: 'nodes#find_redirect'
+  get ':short_url', to: 'redirects#find_redirect', param: :short_url
 
   root 'users#new'
   scope :app do
