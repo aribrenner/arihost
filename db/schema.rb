@@ -16,6 +16,16 @@ ActiveRecord::Schema.define(version: 20160519025343) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "hits", force: :cascade do |t|
+    t.string  "location"
+    t.string  "ip"
+    t.string  "device"
+    t.integer "node_id",  null: false
+  end
+
+  add_index "hits", ["ip"], name: "index_hits_on_ip", using: :btree
+  add_index "hits", ["node_id"], name: "index_hits_on_node_id", using: :btree
+
   create_table "nodes", force: :cascade do |t|
     t.string  "short_url",    null: false
     t.string  "redirect_url", null: false
