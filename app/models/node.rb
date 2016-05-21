@@ -1,6 +1,6 @@
 class Node < ActiveRecord::Base
 
-  validates_presence_of :short_url, :redirect_url
+  validates_presence_of :short_url, :redirect_url, :user
   validates_uniqueness_of :short_url
 
   before_validation :set_short_url, on: :create
