@@ -30,4 +30,8 @@ class ApplicationController < ActionController::Base
   def ensure_signed_out
     redirect_to nodes_path if current_user
   end
+
+  def flash_errors(model)
+    flash[:errors] = model.errors.full_messages
+  end
 end

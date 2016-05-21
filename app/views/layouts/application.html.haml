@@ -9,4 +9,13 @@
     - if current_user
       hi, #{current_user.username}
 
+    - if flash[:errors]
+      %ul
+        - flash[:errors].each do |err|
+          %li
+            = err
+
+    = flash[:notice] if flash[:notice]
+
+
     = yield

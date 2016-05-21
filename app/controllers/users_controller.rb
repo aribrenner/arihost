@@ -10,8 +10,10 @@ class UsersController < ApplicationController
     @user = User.create(create_params)
     if @user.save
       sign_in(@user)
+      flash[:notice] = 'account created!'
       redirect_to nodes_path
     else
+      flash_errors(@user)
       render :new
     end
   end

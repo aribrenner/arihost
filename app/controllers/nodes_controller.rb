@@ -16,8 +16,10 @@ class NodesController < ApplicationController
     @node.user = current_user
 
     if @node.save
+      flash[:notice] = 'url created!'
       redirect_to node_path(@node.short_url)
     else
+      flash_errors(@node)
       render :new
     end
   end
