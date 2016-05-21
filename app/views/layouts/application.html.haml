@@ -7,15 +7,23 @@
     = csrf_meta_tags
   %body
     - if current_user
-      hi, #{current_user.username}
+      .welcome-header
+        hi, #{current_user.username}
+      %br
+
 
     - if flash[:errors]
-      %ul
-        - flash[:errors].each do |err|
-          %li
-            = err
+      .flash-errors
+        %ul
+          - flash[:errors].each do |err|
+            %li
+              = err
+      %br
 
-    = flash[:notice] if flash[:notice]
+    - if flash[:notice]
+      .flash-notice
+        = flash[:notice]
+      %br
 
 
     = yield
