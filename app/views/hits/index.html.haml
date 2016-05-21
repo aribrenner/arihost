@@ -1,11 +1,19 @@
-%table
-  %tr
-    %td ip
-    %td time
+- if @hits.present?
 
-  - @hits.each do |hit|
+  = "#{@hits.count} hits#{' for this url' if @node}"
+
+  %table
     %tr
-      %td
-        = hit.ip
-      %td
-        = hit.created_at
+      %td ip
+      %td time
+
+    - @hits.each do |hit|
+      %tr
+        %td
+          = hit.ip
+        %td
+          = hit.created_at.strftime("%A, %B %d, %Y at %I:%M %p")
+
+- else
+
+  No Hits :(
