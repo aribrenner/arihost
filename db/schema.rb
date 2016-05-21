@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 20160519025343) do
   enable_extension "plpgsql"
 
   create_table "hits", force: :cascade do |t|
-    t.string  "location"
-    t.string  "ip"
-    t.string  "device"
-    t.integer "node_id",  null: false
+    t.string   "location"
+    t.string   "ip"
+    t.string   "device"
+    t.integer  "node_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "hits", ["ip"], name: "index_hits_on_ip", using: :btree

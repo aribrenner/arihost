@@ -5,6 +5,7 @@ class CreateHits < ActiveRecord::Migration
       t.string :ip
       t.string :device
       t.integer :node_id, null: false
+      t.timestamps
     end
 
     add_index :hits, :ip
