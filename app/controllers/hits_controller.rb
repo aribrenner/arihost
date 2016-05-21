@@ -7,7 +7,7 @@ class HitsController < ApplicationController
       find_node
       @hits = @node.hits
     else
-      @hits = current_user.hits
+      @hits = current_user.node_hits
     end
   end
 

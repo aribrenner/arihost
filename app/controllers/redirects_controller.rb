@@ -11,7 +11,8 @@ class RedirectsController < ApplicationController
     Hit.create(
       ip: request.remote_ip,
       device: request.user_agent,
-      node: @node
+      hitable: @node,
+      hitable_type: Node.name
     )
   end
 

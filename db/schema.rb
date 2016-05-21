@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521230046) do
+ActiveRecord::Schema.define(version: 20160521230924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,13 +20,14 @@ ActiveRecord::Schema.define(version: 20160521230046) do
     t.string   "location"
     t.string   "ip"
     t.string   "device"
-    t.integer  "node_id",    null: false
+    t.integer  "hitable_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "hitable_type"
   end
 
+  add_index "hits", ["hitable_id"], name: "index_hits_on_hitable_id", using: :btree
   add_index "hits", ["ip"], name: "index_hits_on_ip", using: :btree
-  add_index "hits", ["node_id"], name: "index_hits_on_node_id", using: :btree
 
   create_table "nodes", force: :cascade do |t|
     t.string  "short_url",    null: false

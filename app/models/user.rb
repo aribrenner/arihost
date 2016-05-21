@@ -9,7 +9,10 @@ class User < ActiveRecord::Base
   validates :password, length: PASSWORD_LENGTH_RANGE, allow_nil: true
 
   has_many :nodes
-  has_many :hits, through: :nodes
+  has_many :pixels
+
+  has_many :node_hits, through: :nodes, source: :hits
+  has_many :pixel_hits, through: :pixels, source: :hits
 
   attr_reader :password
 
