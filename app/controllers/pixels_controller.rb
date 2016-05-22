@@ -18,6 +18,10 @@ class PixelsController < ApplicationController
     end
   end
 
+  def show
+    @pixel = Pixel.find_by_short_url(params[:short_url])
+  end
+
   private
 
   def create_params
