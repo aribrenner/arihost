@@ -11,7 +11,7 @@ class Pixel < ActiveRecord::Base
   SHORT_URL_LENGTH = 8
 
   def full_url
-    "#{ENV['DOMAIN']}/#{short_url}"
+    "#{ENV['DOMAIN']}/images/#{short_url}"
   end
 
   private

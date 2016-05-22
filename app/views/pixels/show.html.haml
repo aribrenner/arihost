@@ -2,3 +2,12 @@
   = @pixel.name
 
 = @pixel.description
+%br
+= @pixel.full_url
+
+%button.copy-button{"data-clipboard-text" => "<img src='#{@pixel.full_url}'>"}
+  Copy image tag
+
+%br
+
+= link_to "#{@pixel.hits.count} hits", pixel_hits_path(@pixel.short_url)
