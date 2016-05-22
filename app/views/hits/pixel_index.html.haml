@@ -1,5 +1,5 @@
 = "#{@hits.count} hits for "
-= link_to @pixel.short_url, pixel_path(@pixel.short_url)
+= link_to @pixel.name, pixel_path(@pixel.short_url)
 
 - if @hits.present?
   = render partial: 'index'

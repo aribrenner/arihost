@@ -1,0 +1,26 @@
+%h3
+  my tracking pixels
+
+= "#{@pixels.count} total pixels"
+
+- if @pixels.any?
+  %table
+    %tr
+      %td Name
+      %td Description
+      %td Hits
+
+    - @pixels.each do |pixel|
+      %tr
+        %td
+          = link_to pixel.name, pixel_path(pixel.short_url)
+        %td= pixel.description
+        %td
+          = link_to 'hits', pixel_hits_path(pixel.short_url)
+
+
+
+%br
+%br
+
+= link_to 'create tracking pixel', new_pixel_path

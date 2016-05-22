@@ -1,5 +1,7 @@
 class PixelsController < ApplicationController
 
+  before_action :ensure_signed_in
+
   def new
     @pixel = Pixel.new
   end
@@ -20,6 +22,10 @@ class PixelsController < ApplicationController
 
   def show
     @pixel = Pixel.find_by_short_url(params[:short_url])
+  end
+
+  def index
+    @pixels = current_user.pixels
   end
 
   private
