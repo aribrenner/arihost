@@ -2,18 +2,13 @@ class HitsController < ApplicationController
 
   before_action :ensure_signed_in
 
-  def index
-    if params[:node_short_url]
-      find_node
-      @hits = @node.hits
-    else
-      @hits = current_user.node_hits
-    end
+  def node_index
+    @node = current_user.nodes.find_by_short_url(params[:node_short_url])
+    @hits = @node.hits
   end
 
-  private
-
-  def find_node
-    @node = current_user.nodes.find_by_short_url(params[:node_short_url])
+  def pixel_index
+    @pixel = current_user.pixels.find_by_short_url(params[:pixel_short_url])
+    @hits = @pixel.hits
   end
 end

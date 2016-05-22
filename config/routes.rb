@@ -9,12 +9,12 @@ Rails.application.routes.draw do
   scope :app do
 
     resources :nodes, param: :short_url do
-      resources :hits, only: :index
+      get 'hits', to: 'hits#node_index'
     end
 
-    resources :pixels, param: :short_url
-
-    resources :hits, only: :index
+    resources :pixels, param: :short_url do
+      get 'hits', to: 'hits#pixel_index'
+    end
 
     resources :users, param: :username
   end

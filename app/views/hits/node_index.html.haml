@@ -1,0 +1,5 @@
+= "#{@hits.count} hits for "
+= link_to @node.short_url, node_path(@node.short_url)
+
+- if @hits.present?
+  = render partial: 'index'
