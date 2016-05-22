@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get ':short_url', to: 'redirects#find_redirect', param: :short_url
+  get ':short_url', to: 'redirects#get_node'
+  get 'images/:short_url', to: 'redirects#get_pixel'
 
   root 'users#new'
 
