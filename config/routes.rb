@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       resources :hits, only: :index
     end
 
+    resources :pixels, param: :short_url
+
     resources :hits, only: :index
 
     resources :users, param: :username
