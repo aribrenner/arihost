@@ -26,10 +26,11 @@
               = err
       %br
 
-    - if flash[:notice]
-      .flash-notice
-        = flash[:notice]
-      %br
+    - [:notice, :error].each do |flash_type|
+      - if flash[flash_type]
+        .flash-message{class: flash_type}
+          = flash[flash_type]
+        %br
 
 
     = yield
