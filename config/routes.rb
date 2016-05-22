@@ -16,7 +16,9 @@ Rails.application.routes.draw do
       get 'hits', to: 'hits#pixel_index'
     end
 
+    resources :hits, only: :destroy
     resources :users, param: :username
+
   end
 
 end

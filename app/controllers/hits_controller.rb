@@ -11,4 +11,14 @@ class HitsController < ApplicationController
     @pixel = current_user.pixels.find_by_short_url(params[:pixel_short_url])
     @hits = @pixel.hits
   end
+
+  def destroy
+    if params[:hitable_type] == Node.name
+      current_user.node_hits.find(params[:id])
+    elsif params[:hitable_type] == Pixel.name
+      current_user.pixel_hits.find(params[:id])
+    end.destroy
+
+    render json: {success: true}
+  end
 end

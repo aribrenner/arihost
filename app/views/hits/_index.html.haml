@@ -2,6 +2,7 @@
   %tr
     %td ip
     %td time
+    %td delete
 
   - @hits.each do |hit|
     %tr
@@ -9,3 +10,6 @@
         = hit.ip
       %td
         = hit.created_at.strftime("%A, %B %d, %Y at %I:%M %p")
+      %td
+        %button.hit-destroy-button{data: { url: hit_path(hit), hitable_type: hitable_type }}
+          delete
