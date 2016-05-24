@@ -25,7 +25,7 @@ class PixelsController < ApplicationController
   end
 
   def index
-    @pixels = current_user.pixels
+    @pixels = current_user.pixels.includes(:hits)
   end
 
   private
