@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   get ':short_url', to: 'redirects#get_node'
   get 'images/:short_url', to: 'redirects#get_pixel'
 
+  get 'https:/*node_redirect_url',
+      'http:/*node_redirect_url',
+      to: 'nodes#create', format: false
+
   root 'users#new'
 
   resource :session

@@ -35,7 +35,17 @@ class NodesController < ApplicationController
   private
 
   def create_params
-    params.require(:node).permit(:redirect_url)
+    if params[:node_redirect_url]
+      build_redirect_from_url
+    else
+      params.require(:node).permit(:redirect_url)
+    end
+  end
+
+  def build_redirect_from_url
+    {
+      redirect_url: params[:node_redirect_url] + '?' + request.query_string
+    }
   end
 
 end
