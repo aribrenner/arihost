@@ -14,6 +14,11 @@ class Node < ActiveRecord::Base
     "#{ENV['DOMAIN']}/#{short_url}"
   end
 
+  def redirect_url_with_scheme
+    return redirect_url if URI.parse(redirect_url).scheme
+    'http://' + redirect_url
+  end
+
   private
 
   def set_short_url

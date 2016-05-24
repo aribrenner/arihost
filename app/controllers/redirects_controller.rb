@@ -4,7 +4,7 @@ class RedirectsController < ApplicationController
     @type = Node
     if find_hitable
       create_hit
-      redirect_to @hitable.redirect_url
+      redirect_to @hitable.redirect_url_with_scheme
     else
       raise ActionController::RoutingError.new(:short_url)
     end
