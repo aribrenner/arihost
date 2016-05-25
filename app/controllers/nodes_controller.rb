@@ -3,7 +3,7 @@ class NodesController < ApplicationController
   before_action :ensure_signed_in
 
   def new
-    @node = Node.new
+    @node = Node.new(redirect_url: build_redirect_from_url)
   end
 
   def create
@@ -31,17 +31,14 @@ class NodesController < ApplicationController
   private
 
   def create_params
-    if params[:node_redirect_url]
-      build_redirect_from_url
-    else
-      params.require(:node).permit(:redirect_url)
-    end
+    params.require(:node).permit(:redirect_url)
   end
 
   def build_redirect_from_url
     redirect_url = params[:node_redirect_url]
+    return unless redirect_url
     redirect_url += "?#{request.query_string}" if request.query_string.present?
-    { redirect_url: redirect_url }
+    redirect_url
   end
 
 end

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'https:/*node_redirect_url',
       'http:/*node_redirect_url',
-      to: 'nodes#create', format: false
+      to: 'nodes#new', format: false
 
   root 'sessions#new'
 
