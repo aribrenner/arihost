@@ -39,9 +39,9 @@ class NodesController < ApplicationController
   end
 
   def build_redirect_from_url
-    {
-      redirect_url: params[:node_redirect_url] + '?' + request.query_string
-    }
+    redirect_url = params[:node_redirect_url]
+    redirect_url += "?#{request.query_string}" if request.query_string.present?
+    { redirect_url: redirect_url }
   end
 
 end
