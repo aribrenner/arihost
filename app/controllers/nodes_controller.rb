@@ -1,10 +1,6 @@
 class NodesController < ApplicationController
 
-  before_action :ensure_signed_in, except: :find_redirect
-
-  def find_redirect
-    redirect_to @node.redirect_url
-  end
+  before_action :ensure_signed_in
 
   def new
     @node = Node.new
