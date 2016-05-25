@@ -24,7 +24,9 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_signed_in
-    redirect_to :root unless current_user
+    return if current_user
+    session[:redirect_path] = request.url
+    redirect_to :root
   end
 
   def ensure_signed_out

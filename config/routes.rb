@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       'http:/*node_redirect_url',
       to: 'nodes#create', format: false
 
-  root 'users#new'
+  root 'sessions#new'
 
   resource :session
 
