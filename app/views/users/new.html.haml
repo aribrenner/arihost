@@ -1,10 +1,20 @@
+- min_username_chars = User::USERNAME_LENGTH_RANGE[:minimum]
+- max_username_chars = User::USERNAME_LENGTH_RANGE[:maximum]
+
+- min_password_chars = User::PASSWORD_LENGTH_RANGE[:minimum]
+- max_password_chars = User::PASSWORD_LENGTH_RANGE[:maximum]
+
+- password_opts = { class: 'js-user-password-input', required: true, minlength: min_password_chars, maxlength: max_password_chars, size: nil }
+
+
 %h2
   create an account
 
 = form_for @user do |form|
-  = form.text_field :username, placeholder: 'username'
-  = form.password_field :password, placeholder: 'password', class: 'js-user-password-input', required: true
-  = password_field_tag :password_confirmation, nil, placeholder: 'confirm password', class: 'js-user-password-input', required: true
+
+  = form.text_field :username, placeholder: 'username', required: true, minlength: min_username_chars, maxlength: max_username_chars
+  = form.password_field :password, placeholder: 'password', **password_opts
+  = password_field_tag :password_confirmation, nil, placeholder: 'confirm password', **password_opts
   = submit_tag 'sign up'
 
 %br
