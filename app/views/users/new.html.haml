@@ -2,8 +2,9 @@
   create an account
 
 = form_for @user do |form|
-  = form.text_field :username
-  = form.text_field :password, type: :password
+  = form.text_field :username, placeholder: 'username'
+  = form.password_field :password, placeholder: 'password', class: 'js-user-password-input', required: true
+  = password_field_tag :password_confirmation, nil, placeholder: 'confirm password', class: 'js-user-password-input', required: true
   = submit_tag 'sign up'
 
 %br
