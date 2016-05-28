@@ -14,6 +14,10 @@ class Pixel < ActiveRecord::Base
     "#{ENV['DOMAIN']}/images/#{short_url}"
   end
 
+  def image_tag
+    "<img src='http://#{full_url}'>"
+  end
+
   private
 
   def set_short_url

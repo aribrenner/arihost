@@ -5,9 +5,16 @@
 %br
 = @pixel.full_url
 
-%button.copy-button{"data-clipboard-text" => "<img src='http://#{@pixel.full_url}'>"}
+%button.copy-button{"data-clipboard-text" => @pixel.image_tag}
   Copy image tag
 
+%br
+
+or copy this ->
+#{@pixel.image_tag.html_safe}
+<-
+
+%br
 %br
 
 = link_to "#{@pixel.hits.count} hits", pixel_hits_path(@pixel.short_url)
