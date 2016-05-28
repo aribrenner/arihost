@@ -6,7 +6,7 @@ class Node < ActiveRecord::Base
   before_validation :set_short_url, on: :create
 
   belongs_to :user
-  has_many :hits, as: :hitable
+  has_many :hits, as: :hitable, dependent: :destroy
 
   SHORT_URL_LENGTH = 6
 

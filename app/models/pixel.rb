@@ -5,7 +5,7 @@ class Pixel < ActiveRecord::Base
 
   before_validation :set_short_url, on: :create
 
-  has_many :hits, as: :hitable
+  has_many :hits, as: :hitable, dependent: :destroy
   belongs_to :user
 
   SHORT_URL_LENGTH = 8
