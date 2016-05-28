@@ -44,7 +44,7 @@ class RedirectsController < ApplicationController
   def ignore_hit?
     @last_hit = @hitable.hits.last
     return false unless last_hit && last_hit.ip.present?
-    under_threshold? && same_ip?
+    own_hitable? || (under_threshold? && same_ip?)
   end
 
   def under_threshold?
@@ -53,6 +53,10 @@ class RedirectsController < ApplicationController
 
   def same_ip?
     last_hit.ip == remote_ip
+  end
+
+  def own_hitable?
+    @hitable.user == current_user
   end
 
 end
