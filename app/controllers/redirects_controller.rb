@@ -12,7 +12,6 @@ class RedirectsController < ApplicationController
 
   def get_pixel
     @type = Pixel
-    find_hitable
     create_hit if find_hitable
     send_file('public/transparent.png',
           filename: 'image.png',
