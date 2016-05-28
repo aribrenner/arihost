@@ -5,7 +5,7 @@
     %td delete
 
   - @hits.each do |hit|
-    %tr
+    %tr.js-hit-row{data: {hit: hit.id}}
       %td
         = hit.ip
       %td

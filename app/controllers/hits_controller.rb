@@ -19,6 +19,6 @@ class HitsController < ApplicationController
       current_user.pixel_hits.find(params[:id])
     end.destroy
 
-    render json: {success: true}
+    render json: {success: true, id: params[:id]}
   end
 end
