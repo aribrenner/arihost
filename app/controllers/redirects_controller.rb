@@ -28,12 +28,18 @@ class RedirectsController < ApplicationController
   end
 
   def create_hit
+    return if ignore_hit?
     Hit.create(
       ip: request.remote_ip,
       device: request.user_agent,
       hitable: @hitable,
       hitable_type: @type.name
     )
+  end
+
+  def ignore_hit?
+    last_hit = @hitable.hits.last
+    last_hit && (Time.now - last_hit.created_at) < Hit::IGNORE_THRESHOLD
   end
 
 end
