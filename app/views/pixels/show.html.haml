@@ -1,8 +1,13 @@
 %h4
   = @pixel.name
 
-= @pixel.description
+- if @pixel.description.present?
+  = @pixel.description
+  %br
+= @pixel.created_at.strftime("%A, %B %d, %Y at %I:%M %p")
 %br
+%br
+
 = @pixel.full_url
 
 %button.copy-button{"data-clipboard-text" => @pixel.image_tag}
