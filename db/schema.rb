@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521230924) do
+ActiveRecord::Schema.define(version: 20160529211340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +30,11 @@ ActiveRecord::Schema.define(version: 20160521230924) do
   add_index "hits", ["ip"], name: "index_hits_on_ip", using: :btree
 
   create_table "nodes", force: :cascade do |t|
-    t.string  "short_url",    null: false
-    t.string  "redirect_url", null: false
-    t.integer "user_id",      null: false
+    t.string   "short_url",    null: false
+    t.string   "redirect_url", null: false
+    t.integer  "user_id",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "nodes", ["short_url"], name: "index_nodes_on_short_url", unique: true, using: :btree
