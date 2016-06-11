@@ -24,7 +24,7 @@ class RedirectsController < ApplicationController
 
   attr_reader :last_hit
 
-  delegate :remote_ip, :user_agent, to: :request
+  delegate :remote_ip, :user_agent, :location, to: :request
 
   def find_hitable
     @hitable = @type.find_by_short_url(params[:short_url])
@@ -36,7 +36,8 @@ class RedirectsController < ApplicationController
       ip: remote_ip,
       device: user_agent,
       hitable: @hitable,
-      hitable_type: @type.name
+      hitable_type: @type.name,
+      location: location.data
     )
   end
 
