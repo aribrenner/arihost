@@ -1,5 +1,7 @@
 class Api::HitsController < ApplicationController
 
+  before_filter :allow_cors
+
   def index
     hitable = if short_url = params[:node_short_url]
       Node.find_by_short_url(short_url)
@@ -8,6 +10,12 @@ class Api::HitsController < ApplicationController
     end
 
     @hits = hitable.hits
+  end
+
+  private
+
+  def allow_cors
+    headers['Access-Control-Allow-Origin'] = '*'
   end
 
 end
