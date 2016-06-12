@@ -25,4 +25,14 @@ Rails.application.routes.draw do
 
   end
 
+  namespace :api, defaults: { format: :json } do
+    resources :nodes, param: :short_url do
+      resources :hits, only: :index
+    end
+
+    resources :pixels, param: :short_url do
+      resources :hits, only: :index
+    end
+  end
+
 end
