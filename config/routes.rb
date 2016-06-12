@@ -8,9 +8,10 @@ Rails.application.routes.draw do
 
   root 'sessions#new'
 
-  resource :session
 
   scope :app do
+
+    resource :session
 
     resources :nodes, param: :short_url do
       get 'hits', to: 'hits#node_index'
