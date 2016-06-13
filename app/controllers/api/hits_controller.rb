@@ -8,7 +8,7 @@ class Api::HitsController < ApplicationController
     elsif short_url = params[:pixel_short_url]
       Pixel.find_by_short_url(short_url)
     end
-
+    @referer = request.referer
     @hits = hitable.hits
   end
 
