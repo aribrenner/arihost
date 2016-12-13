@@ -37,7 +37,8 @@ class RedirectsController < ApplicationController
       device: user_agent,
       hitable: @hitable,
       hitable_type: @type.name,
-      location: location.data
+      location: location.data,
+      meta: params[:meta]
     )
   end
 
