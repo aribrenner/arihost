@@ -16,6 +16,10 @@
         ||
         = link_to 'sign out', session_path, method: :delete
       %br
+    - else
+      = link_to 'sign in', '/'
+      ||
+      = link_to 'create account', new_user_path
 
 
     - if flash[:errors]
