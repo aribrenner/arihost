@@ -2,6 +2,8 @@ module Urlable
 
   RESERVED = %w(http app api images)
 
+  private
+
   def set_short_url
     str = self.class::SHORT_URL_LENGTH.times.map { random_char }.join
     set_short_url unless valid_url?(str)
