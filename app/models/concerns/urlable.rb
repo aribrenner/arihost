@@ -14,9 +14,11 @@ module Urlable
   end
 
   def accepted_chars
-    ('a'..'z').to_a +
-    ('A'..'Z').to_a +
-    ('0'..'9').to_a
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    ('b'..'z').to_a +
+    ('B'..'Z').to_a +
+    ('0'..'9').to_a -
+    vowels - vowels.map(&:upcase)
   end
 
   def valid_url?(random_string)
