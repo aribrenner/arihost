@@ -1,10 +1,12 @@
-Rails.application.routes.draw do
-  get ':short_url', to: 'redirects#get_node'
-  get 'images/:short_url', to: 'redirects#get_pixel'
+class ShortUrlMatcher
+  def matches?(request)
+    request.path.exclude?('.')
+  end
+end
 
-  get 'https:/*node_redirect_url',
-      'http:/*node_redirect_url',
-      to: 'nodes#new', format: false
+Rails.application.routes.draw do
+  get ':short_url', to: 'redirects#get_node', constraints: ShortUrlMatcher.new
+  get 'images/:short_url', to: 'redirects#get_pixel'
 
   root 'sessions#new'
 
@@ -35,5 +37,7 @@ Rails.application.routes.draw do
       resources :hits, only: :index
     end
   end
+
+  get '*node_redirect_url', to: 'nodes#new', format: false
 
 end
