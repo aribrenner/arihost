@@ -1,6 +1,6 @@
 class NodesController < ApplicationController
 
-  before_action :ensure_signed_in
+  before_action :ensure_signed_in, only: :index
 
   def new
     @node = Node.new(redirect_url: build_redirect_from_url)
@@ -20,7 +20,7 @@ class NodesController < ApplicationController
   end
 
   def show
-    @node = current_user.nodes.find_by_short_url(params[:short_url])
+    @node = Node.find_by_short_url(params[:short_url])
     raise ActionController::RoutingError.new(:short_url) unless @node
   end
 
