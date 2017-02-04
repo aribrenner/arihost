@@ -6,35 +6,40 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    - if current_user
-      .welcome-header
-        hi, #{current_user.username}
-        ||
-        = link_to 'my urls', nodes_path
-        ||
-        = link_to 'my tracking pixels', pixels_path
-        ||
-        = link_to 'sign out', session_path, method: :delete
-      %br
-    - else
-      = link_to 'sign in', '/'
-      ||
-      = link_to 'create account', new_user_path
+    .header
+      .header-content
+        %span.app-title
+          ari.host
+        %span.header-links
+          - if current_user
+            %span.header-link
+              #{current_user.username}
+            %span.header-link
+              = link_to 'my urls', nodes_path
+            %span.header-link
+              = link_to 'my tracking pixels', pixels_path
+            %span.header-link
+              = link_to 'sign out', session_path, method: :delete
+          - else
+            %span.header-link
+              = link_to 'sign in', '/'
+            %span.header-link
+              = link_to 'create account', new_user_path
+
+      .main-content
+        .main-content-body
+          - if flash[:errors]
+            .flash-errors
+              %ul
+                - flash[:errors].each do |err|
+                  %li
+                    = err
+
+          - [:notice, :error].each do |flash_type|
+            - if flash[flash_type]
+              .flash-message{class: flash_type}
+                = flash[flash_type]
+              %br
 
 
-    - if flash[:errors]
-      .flash-errors
-        %ul
-          - flash[:errors].each do |err|
-            %li
-              = err
-      %br
-
-    - [:notice, :error].each do |flash_type|
-      - if flash[flash_type]
-        .flash-message{class: flash_type}
-          = flash[flash_type]
-        %br
-
-
-    = yield
+          = yield

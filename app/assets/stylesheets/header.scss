@@ -1,0 +1,35 @@
+.header {
+  background: #eee;
+  margin: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: $header-height;
+
+  .header-content {
+    margin: 0 auto;
+    width: $main-width;
+    padding: 0px 10px;
+    background: #ddd;
+    height: 100%;
+    line-height: $header-height;
+
+    .app-title {
+      font-weight: bold;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+
+    .header-links {
+      float: right;
+
+      .header-link {
+        padding: 0px 5px;
+        font-size: 16px;
+        margin: 0px 5px;
+      }
+    }
+  }
+
+
+}
