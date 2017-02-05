@@ -22,6 +22,7 @@ class PixelsController < ApplicationController
 
   def show
     @pixel = Pixel.find_by_short_url(params[:short_url])
+    @hits = @pixel.hits
   end
 
   def index

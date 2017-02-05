@@ -16,7 +16,7 @@
           = link_to pixel.name, pixel_path(pixel.short_url)
         %td= pixel.description
         %td
-          = link_to "(#{pixel.hits.count} hits)", pixel_hits_path(pixel.short_url)
+          = link_to "(#{pixel.hits.count} hits)", pixel_path(pixel.short_url)
 
 
 

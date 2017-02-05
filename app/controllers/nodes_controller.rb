@@ -22,6 +22,7 @@ class NodesController < ApplicationController
   def show
     @node = Node.find_by_short_url(params[:short_url])
     raise ActionController::RoutingError.new(:short_url) unless @node
+    @hits = @node.hits
   end
 
   def index

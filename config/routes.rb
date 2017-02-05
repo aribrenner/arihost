@@ -15,13 +15,8 @@ Rails.application.routes.draw do
 
     resource :session
 
-    resources :nodes, param: :short_url do
-      get 'hits', to: 'hits#node_index'
-    end
-
-    resources :pixels, param: :short_url do
-      get 'hits', to: 'hits#pixel_index'
-    end
+    resources :nodes, param: :short_url
+    resources :pixels, param: :short_url
 
     resources :hits, only: :destroy
     resources :users, param: :username
