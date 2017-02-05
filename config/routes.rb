@@ -1,11 +1,11 @@
 class ShortUrlMatcher
-  def matches?(request)
+  def self.matches?(request)
     request.path.exclude?('.')
   end
 end
 
 Rails.application.routes.draw do
-  get ':short_url', to: 'redirects#get_node', constraints: ShortUrlMatcher.new
+  get ':short_url', to: 'redirects#get_node', constraints: ShortUrlMatcher
   get 'images/:short_url', to: 'redirects#get_pixel'
 
   root 'sessions#new'
