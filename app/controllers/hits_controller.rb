@@ -1,9 +1,9 @@
 class HitsController < ApplicationController
 
-  before_action :ensure_signed_in
+  before_action :ensure_signed_in, except: :node_index
 
   def node_index
-    @node = current_user.nodes.find_by_short_url(params[:node_short_url])
+    @node = Node.find_by_short_url(params[:node_short_url])
     @hits = @node.hits
   end
 
