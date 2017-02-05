@@ -1,5 +1,7 @@
 class RedirectsController < ApplicationController
 
+  before_filter :allow_cors, only: :get_pixel
+
   def get_node
     @type = Node
     if find_hitable

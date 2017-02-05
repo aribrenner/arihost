@@ -36,4 +36,8 @@ class ApplicationController < ActionController::Base
   def flash_errors(model)
     flash[:errors] = model.errors.full_messages
   end
+
+  def allow_cors
+    headers['Access-Control-Allow-Origin'] = '*'
+  end
 end

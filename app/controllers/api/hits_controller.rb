@@ -12,10 +12,4 @@ class Api::HitsController < ApplicationController
     @hits = hitable.hits
   end
 
-  private
-
-  def allow_cors
-    headers['Access-Control-Allow-Origin'] = '*'
-  end
-
 end
