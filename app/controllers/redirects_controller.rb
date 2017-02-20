@@ -26,7 +26,7 @@ class RedirectsController < ApplicationController
 
   attr_reader :last_hit
 
-  delegate :remote_ip, :user_agent, :location, to: :request
+  delegate :remote_ip, :user_agent, to: :request
 
   def find_hitable
     @hitable = @type.find_by_short_url(params[:short_url])
@@ -60,6 +60,12 @@ class RedirectsController < ApplicationController
 
   def own_hitable?
     @hitable.user == current_user
+  end
+
+  def location
+    request.location
+  rescue
+    {}
   end
 
 end
