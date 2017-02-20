@@ -39,7 +39,7 @@ class RedirectsController < ApplicationController
       device: user_agent,
       hitable: @hitable,
       hitable_type: @type.name,
-      location: location.data,
+      location: {},
       meta: params[:meta]
     )
   end
@@ -60,12 +60,6 @@ class RedirectsController < ApplicationController
 
   def own_hitable?
     @hitable.user == current_user
-  end
-
-  def location
-    request.location
-  rescue
-    {}
   end
 
 end
