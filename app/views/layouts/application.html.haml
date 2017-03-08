@@ -8,8 +8,9 @@
   %body
     .header
       .header-content
-        %span.app-title
-          ari.host
+        = link_to '/' do
+          %span.app-title
+            ari.host
         %span.header-links.js-header-links
           - if current_user
             %span.header-link
