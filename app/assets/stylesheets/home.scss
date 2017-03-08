@@ -23,4 +23,28 @@
     margin: 20px;
     font-size: 20px;
   }
+
+  .example-urls {
+    padding: 5px 10px;
+    background: rgba(255,255,255,.7);
+    font-size: 14px;
+    // border: 1px solid gray;
+    width: 330px;
+    margin: 5px;
+
+    img {
+      display: block;
+    }
+
+    img.example-url{
+      height: 30px;
+      width: auto;
+    }
+
+    img.redirect-example {
+      width: 150px;
+      border: 1px solid black;
+    }
+
+  }
 }
