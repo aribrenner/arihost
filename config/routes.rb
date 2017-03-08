@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get ':short_url', to: 'redirects#get_node', constraints: ShortUrlMatcher
   get 'images/:short_url', to: 'redirects#get_pixel'
 
-  root 'sessions#new'
+  root 'home#welcome'
 
 
   scope :app do

@@ -1,0 +1,26 @@
+.welcome-page {
+  .shorten-url-col {
+    padding-right: 10px;
+    border-right: 1px solid gray;
+  }
+  .info-item {
+    margin: 10px 0px;
+    font-size: 18px;
+  }
+
+  .ari-host-prefix {
+    color: gray;
+    font-family: monospace;
+  }
+
+  .show-me {
+    font-size: 14px;
+    padding: 3px;
+    font-style: italic;
+  }
+
+  .create-account {
+    margin: 20px;
+    font-size: 20px;
+  }
+}

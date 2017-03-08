@@ -1,0 +1,25 @@
+.welcome-page
+  .row
+    .col-md-6.shorten-url-col
+      %h2 Shorten URLs
+
+      .info-item
+        Quickly shorten any web URL by putting
+        %span.ari-host-prefix ari.host/
+        in front of it
+        %a.show-me{:href => "/"}
+          Show me how
+      .info-item Share shortened URLs and track visits
+      .info-item Use the API to pull a timeline and count of hits
+
+    .col-md-6.track-pixel-col
+      %h2 Track Pixels
+
+      .info-item Create tracking pixels for emails and webpages
+      .info-item Add any meta information to each pixel
+      .info-item Use the API to pull a timeline and count of hits
+
+  .row
+    .create-account.text-center
+      = link_to 'Create an account', new_user_path
+      to get started

@@ -22,7 +22,7 @@
               = link_to 'sign out', session_path, method: :delete
           - else
             %span.header-link
-              = link_to 'sign in', '/'
+              = link_to 'sign in', new_session_path
             %span.header-link
               = link_to 'create account', new_user_path
 
