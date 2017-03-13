@@ -1,9 +1,9 @@
 %table.hit-index-table
   %tr
-    %td ip
-    %td time
-    %td meta
-    %td delete
+    %th ip
+    %th time
+    %th meta
+    %th delete
 
   - @hits.each do |hit|
     %tr.js-hit-row{data: {hit: hit.id}}
