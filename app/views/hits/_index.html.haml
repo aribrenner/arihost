@@ -1,7 +1,8 @@
-%table
+%table.hit-index-table
   %tr
     %td ip
     %td time
+    %td meta
     %td delete
 
   - @hits.each do |hit|
@@ -10,6 +11,8 @@
         = hit.ip
       %td
         = hit.created_at.strftime("%A, %B %d, %Y at %I:%M %p")
+      %td
+        = hit.meta
       %td
         %button.hit-destroy-button{data: { url: hit_path(hit), hittable_type: hittable_type }}
           delete
