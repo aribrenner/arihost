@@ -1,0 +1,9 @@
+.nodes-table {
+  td {
+    max-width: 350px;
+    overflow: scroll;
+    padding: 2px 5px;
+    border-left: 1px solid #ccc;
+    white-space: nowrap;
+  }
+}

@@ -1,9 +1,10 @@
 %h3
   My URLs
 
-- @nodes.each do |node|
-  = render 'node', node: node
-  %br
+%table.nodes-table
+  - @nodes.each do |node|
+    %tr
+      = render 'node', node: node
 
 %br
 = link_to 'create url', new_node_path

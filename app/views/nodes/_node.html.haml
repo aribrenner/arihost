@@ -1,9 +1,11 @@
 - hit_count = node.hits.count
 
-= node.full_url
-%button.copy-button{"data-clipboard-text" => "#{node.full_url}"}
-  Copy link
-|
-= link_to node.redirect_url, node.redirect_url_with_scheme
-|
-= link_to "(#{hit_count} hits)", node_path(node.short_url)
+%td
+  = node.full_url
+%td
+  %button.copy-button{"data-clipboard-text" => "#{node.full_url}"}
+    Copy link
+%td
+  = link_to node.redirect_url, node.redirect_url_with_scheme
+%td
+  = link_to "(#{hit_count} hits)", node_path(node.short_url)
