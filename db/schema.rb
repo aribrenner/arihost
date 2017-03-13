@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203035455) do
+ActiveRecord::Schema.define(version: 20170313033103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20170203035455) do
   create_table "hits", force: :cascade do |t|
     t.string   "ip"
     t.string   "device"
-    t.integer  "hitable_id",   null: false
+    t.integer  "hittable_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "hitable_type"
+    t.string   "hittable_type"
     t.string   "state"
     t.string   "country"
     t.string   "latitude"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170203035455) do
     t.string   "meta"
   end
 
-  add_index "hits", ["hitable_id"], name: "index_hits_on_hitable_id", using: :btree
+  add_index "hits", ["hittable_id"], name: "index_hits_on_hittable_id", using: :btree
   add_index "hits", ["ip"], name: "index_hits_on_ip", using: :btree
 
   create_table "nodes", force: :cascade do |t|

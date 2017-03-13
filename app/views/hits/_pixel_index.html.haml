@@ -2,4 +2,4 @@
 = link_to @pixel.name, pixel_path(@pixel.short_url)
 
 - if @hits.present?
-  = render partial: 'hits/index', locals: { hitable_type: Pixel.name }
+  = render partial: 'hits/index', locals: { hittable_type: Pixel.name }

@@ -4,7 +4,7 @@ ariHost(function(){
       url: this.dataset.url,
       method: 'DELETE',
       data: {
-        hitable_type: this.dataset.hitableType
+        hittable_type: this.dataset.hittableType
       },
       success: function (response) {
         var id = response.id;

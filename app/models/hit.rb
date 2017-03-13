@@ -1,7 +1,7 @@
 class Hit < ActiveRecord::Base
-  belongs_to :hitable, polymorphic: true
+  belongs_to :hittable, polymorphic: true
 
-  validates_presence_of :hitable, :hitable_type
+  validates_presence_of :hittable, :hittable_type
 
   IGNORE_THRESHOLD = 1.minute
 

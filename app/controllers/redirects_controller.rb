@@ -4,9 +4,9 @@ class RedirectsController < ApplicationController
 
   def get_node
     @type = Node
-    if find_hitable
+    if find_hittable
       create_hit
-      redirect_to @hitable.redirect_url_with_scheme
+      redirect_to @hittable.redirect_url_with_scheme
     else
       raise ActionController::RoutingError.new(:short_url)
     end
@@ -14,7 +14,7 @@ class RedirectsController < ApplicationController
 
   def get_pixel
     @type = Pixel
-    create_hit if find_hitable
+    create_hit if find_hittable
     send_file('public/transparent.png',
           filename: 'image.png',
           type: 'img/png',
@@ -28,8 +28,8 @@ class RedirectsController < ApplicationController
 
   delegate :remote_ip, :user_agent, to: :request
 
-  def find_hitable
-    @hitable = @type.find_by_short_url(params[:short_url])
+  def find_hittable
+    @hittable = @type.find_by_short_url(params[:short_url])
   end
 
   def create_hit
@@ -37,17 +37,17 @@ class RedirectsController < ApplicationController
     Hit.create(
       ip: remote_ip,
       device: user_agent,
-      hitable: @hitable,
-      hitable_type: @type.name,
+      hittable: @hittable,
+      hittable_type: @type.name,
       location: {},
       meta: params[:meta]
     )
   end
 
   def ignore_hit?
-    @last_hit = @hitable.hits.last
+    @last_hit = @hittable.hits.last
     return false unless last_hit && last_hit.ip.present?
-    own_hitable? || (under_threshold? && same_data?)
+    own_hittable? || (under_threshold? && same_data?)
   end
 
   def under_threshold?
@@ -58,8 +58,8 @@ class RedirectsController < ApplicationController
     last_hit.ip == remote_ip && last_hit.meta == params[:meta]
   end
 
-  def own_hitable?
-    @hitable.user == current_user
+  def own_hittable?
+    @hittable.user == current_user
   end
 
 end
