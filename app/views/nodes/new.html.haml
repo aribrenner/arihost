@@ -8,7 +8,7 @@
   %br
   = form.text_field :redirect_url
 
-  - if current_user.admin?
+  - if current_user.try(:admin?)
     %br
     = form.label :short_url, 'Short url'
     %br
