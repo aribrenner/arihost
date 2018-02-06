@@ -12,7 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require global_functions
 //= require_tree .
 //= require clipboard.min

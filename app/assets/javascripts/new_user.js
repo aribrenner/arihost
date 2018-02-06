@@ -1,4 +1,4 @@
-ariHost(function(){
+$(function(){
   var passwordInput = document.getElementById('user_password');
   var passwordConfirmationInput = document.getElementById('password_confirmation');
   var $allPasswordInputs = $('.js-user-password-input');

@@ -1,4 +1,4 @@
-ariHost(function(){
+$(function(){
   $('.hit-destroy-button').click(function(){
     $.ajax({
       url: this.dataset.url,

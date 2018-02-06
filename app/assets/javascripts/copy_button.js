@@ -1,4 +1,4 @@
-ariHost(function() {
+$(function() {
   var copyButtonSelector = '.copy-button';
   var $copyButtons = $(copyButtonSelector);
 

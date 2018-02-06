@@ -1,4 +1,4 @@
-ariHost(function() {
+$(function() {
   var $toggle = $('.welcome-page .js-show-me')
 
   if (!$toggle.length) { return }
