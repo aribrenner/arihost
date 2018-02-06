@@ -2,10 +2,7 @@ class Node < ActiveRecord::Base
 
   include Urlable
 
-  validates_presence_of :short_url, :redirect_url
-  validates_uniqueness_of :short_url
-
-  before_validation :set_short_url, on: :create
+  validates_presence_of :redirect_url
 
   belongs_to :user
   has_many :hits, as: :hittable, dependent: :destroy

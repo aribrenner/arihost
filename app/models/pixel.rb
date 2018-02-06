@@ -2,10 +2,7 @@ class Pixel < ActiveRecord::Base
 
   include Urlable
 
-  validates_presence_of :short_url, :user, :name
-  validates_uniqueness_of :short_url
-
-  before_validation :set_short_url, on: :create
+  validates_presence_of :user, :name
 
   has_many :hits, as: :hittable, dependent: :destroy
   belongs_to :user

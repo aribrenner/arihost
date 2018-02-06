@@ -32,7 +32,9 @@ class NodesController < ApplicationController
   private
 
   def create_params
-    params.require(:node).permit(:redirect_url)
+    attrs = [:redirect_url]
+    attrs.push(:short_url) if current_user.admin?
+    params.require(:node).permit(*attrs)
   end
 
   def build_redirect_from_url
