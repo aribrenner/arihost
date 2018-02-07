@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "typescript": "^2.7.1"
+  },
+  "devDependencies": {
+    "@types/clipboard": "^1.5.36",
+    "@types/jquery": "^3.3.0"
+  }
+}

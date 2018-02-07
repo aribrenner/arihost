@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+      "outDir": "app/assets/javascripts/generated",
+      "noImplicitAny": true,
+      "noEmitOnError": true,
+      "sourceMap": true,
+      "target": "es5"
+  },
+  "include": [
+      "app/assets/typescripts/*"
+  ]
+}
